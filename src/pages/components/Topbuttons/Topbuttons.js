@@ -9,6 +9,8 @@ import VacationRentals from './Vacation Rentals';
 export default function Topbutton() {
   const [steps,setStep]=useState(1)
   const [searchValue, setSearchValue] = useState('');
+  const [placeholderText, setPlaceholderText] = useState('Places to go, things to do, hotels...');
+
 
   const handleChange = (event) => {
     setSearchValue(event.target.value);
@@ -20,53 +22,87 @@ export default function Topbutton() {
     console.log('Search submitted:', searchValue);
   };
   
+  const handleHotelClick = () => {
+    setPlaceholderText('Places to go, things to do, hotels...'); // Update placeholder text
+    setSearchValue(''); // Clear search input value
+    setStep(1);
+  };
+  const handleHotelClick2 = () => {
+    setPlaceholderText('Search for hotels...'); // Update placeholder text
+    setSearchValue(''); // Clear search input value
+    setStep(2);
+  };
+  const handleHotelClick3 = () => {
+    setPlaceholderText('Attraction, activity or destination'); // Update placeholder text
+    setSearchValue(''); // Clear search input value
+    setStep(3);
+  };
+  const handleHotelClick4 = () => {
+    setPlaceholderText('Resturant or destination'); // Update placeholder text
+    setSearchValue(''); // Clear search input value
+    setStep(4);
+  };
+  const handleHotelClick5 = () => {
+    setPlaceholderText('destination'); // Update placeholder text
+    setSearchValue(''); // Clear search input value
+    setStep(5);
+  };
+
   return (
     <div className='text-center '>
+      {steps==1&&(
+  <Step1/>
+)}
+{steps==2&&(
+  <Hotels/>
+)}
+{steps==3&&(
+  <Thingstodo/>
+)}
+{steps==4&&(
+  <Restaurants/>
+)}
+{steps==5&&(
+  <VacationRentals/>
+)}
         
-        <div className='flex justify-center mt-4'>
+        <div className='flex justify-center mt-4 mb-4'>
         <button
-         onClick={()=>{
-          setStep(1)
-        }}
+         onClick={handleHotelClick}
         className={`sm:px-6 py-3 w-1/2 sm:w-auto justify-center  tracking-wider rounded-t
         sm:justify-start border-b-2 title-font font-medium 
          inline-flex items-center leading-none ${steps==1?'bg-gray-100 border-indigo-500 text-indigo-500'  :''}`}>
           See All
         </button>
-        <a onClick={()=>{
-          setStep(2)
-        }} 
+        <button onClick={handleHotelClick2}
+          
+        
         
         className={`sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start
          border-b-2 title-font font-medium inline-flex items-center 
          leading-none ${steps==2?'bg-gray-100 border-indigo-500 text-indigo-500 '  :''}tracking-wider`}>
           Hotels
-        </a>
-        <button onClick={()=>{
-          setStep(3)
-        }} 
+        </button>
+        <button onClick={handleHotelClick3} 
         
         className={`sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start
          border-b-2 title-font font-medium inline-flex items-center 
          leading-none ${steps==3?'bg-gray-100 border-indigo-500 text-indigo-500 '  :''}tracking-wider`}>
           Things to do
         </button>
-            
-            
-        <button onClick={()=>{
-          setStep(4)
-        }} 
+        <button onClick={handleHotelClick4} 
         
         className={`sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start
          border-b-2 title-font font-medium inline-flex items-center 
          leading-none ${steps==4?'bg-gray-100 border-indigo-500 text-indigo-500 '  :''}tracking-wider`}>
-          Restaurants
+          Things to do
         </button>
+            
+            
+        
 
        
-        <button onClick={()=>{
-          setStep(5)
-        }} 
+        <button onClick={handleHotelClick5}
         
         className={`sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start
          border-b-2 title-font font-medium inline-flex items-center 
@@ -94,18 +130,9 @@ export default function Topbutton() {
         </button>
         <input
           type="search"
-          autoComplete="off"
-          autoCorrect="off"
-          autoCapitalize="none"
-          spellCheck="false"
-          required
-          name="q"
           className=" px-40 py-4 rounded-r "
-          placeholder="Places to go, things to do, hotels..."
+          placeholder={placeholderText} // Placeholder text is dynamic
           title="Search"
-          aria-label="Search"
-          aria-controls="typeahead_results"
-          aria-autocomplete="list"
           value={searchValue}
           onChange={handleChange}
         />
@@ -114,21 +141,7 @@ export default function Topbutton() {
         </button>
       </form>
     </div>
-{steps==1&&(
-  <Step1/>
-)}
-{steps==2&&(
-  <Hotels/>
-)}
-{steps==3&&(
-  <Thingstodo/>
-)}
-{steps==4&&(
-  <Restaurants/>
-)}
-{steps==5&&(
-  <VacationRentals/>
-)}
+
     </div>
   )
 }
