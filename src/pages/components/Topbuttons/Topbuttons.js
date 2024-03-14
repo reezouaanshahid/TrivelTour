@@ -75,9 +75,6 @@ export default function Topbutton() {
           See All
         </button>
         <button onClick={handleHotelClick2}
-          
-        
-        
         className={`sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start
          border-b-2 title-font font-medium inline-flex items-center 
          leading-none ${steps==2?'bg-gray-100 border-indigo-500 text-indigo-500 '  :''}tracking-wider`}>
@@ -128,9 +125,9 @@ export default function Topbutton() {
             ></path>
           </svg>
         </button>
-        <input
+        <input 
           type="search"
-          className=" px-40 py-4 rounded-r "
+          className="  py-4 rounded-r w-[90vh]"
           placeholder={placeholderText} // Placeholder text is dynamic
           title="Search"
           value={searchValue}

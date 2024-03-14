@@ -5,6 +5,8 @@ import Banner from './pages/components/Banner/Banner'
 import Carosal from './pages/components/Carosal/carosal'
 import Secoundcarosal from './pages/components/Carosal/Secoundcarosal'
 import Thirdcarosal from './pages/components/Carosal/Thirdcarosal'
+import Footer from './pages/components/footer/Footer'
+import Forthcarosal from './pages/components/Carosal/Forthcarosal'
 
 export default function Main() {
   return (
@@ -15,6 +17,8 @@ export default function Main() {
         <Carosal/>
         <Secoundcarosal/>
         <Thirdcarosal/>
+        <Forthcarosal/>
+        <Footer/>
     </div>
   )
 }

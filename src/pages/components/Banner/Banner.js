@@ -4,7 +4,7 @@ import { LuMapPin } from "react-icons/lu";
 
 export default function Banner() {
   return (
-    <div className='flex m-20 bg-blue-200'>
+    <div className='flex m-20 bg-gradient-to-r from-slate-200 to-purple-300'>
         
         <div 
       style={{
