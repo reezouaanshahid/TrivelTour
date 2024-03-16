@@ -7,6 +7,8 @@ import Secoundcarosal from './pages/components/Carosal/Secoundcarosal'
 import Thirdcarosal from './pages/components/Carosal/Thirdcarosal'
 import Footer from './pages/components/footer/Footer'
 import Forthcarosal from './pages/components/Carosal/Forthcarosal'
+import Bannertwo from './pages/components/Banner/Bannertwo'
+import Textcomponent from './pages/components/text/Textcomponent'
 
 export default function Main() {
   return (
@@ -18,6 +20,8 @@ export default function Main() {
         <Secoundcarosal/>
         <Thirdcarosal/>
         <Forthcarosal/>
+        <Bannertwo/>
+        <Textcomponent/>
         <Footer/>
     </div>
   )

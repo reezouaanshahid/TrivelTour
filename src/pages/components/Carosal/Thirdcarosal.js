@@ -36,7 +36,7 @@ export default function Thirdcarosal() {
   return (
     <div className='bg-orange-100'>
         <div className='m-2'>
-      <h2 className='font-bold text-2xl'>Top experiences on Tripadvisor</h2>
+        <h2 className='font-bold text-2xl flex-wrap'>Top experiences on Tripadvisor</h2>
       <Slider className='m-20' {...settings}>
         <div className='p-2 relative '>
          <img className='rounded-2xl' style={{

@@ -35,9 +35,7 @@ const Forthcarosal = () => {
   return (
     
     <div className='m-32 '>
-      <h2 className='font-bold text-2xl'>Top destinations for your next vacation
-
-</h2>
+      <h2 className='font-bold text-2xl'>Top destinations for your next vacation</h2>
       <Slider {...settings}>
         <div className='p-2 relative rounded'>
          <img style={{
@@ -51,11 +49,11 @@ const Forthcarosal = () => {
            <button className="absolute top-3 hover:text-2xl right-3 m-2 hover:text-red-400"> {/* Add absolute positioning */}
           <FaHeart  size={24} color="red" /> {/* Use the heart icon */}
         </button>
-          <h1 className='font-bold'>Grand Circle Island and <br/>Haleiwa 9 Hour Tour</h1>
-          <p className='font-bold'>from A$208 per adult</p>
+          <h1 className='font-bold text-xl'>    Yellowstone National Park, WY</h1>
+          
         </div>
         <div className='p-2 relative'>
-         <img style={{
+         <img alt='image here' style={{
             backgroundImage: `url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/c2/7b/93/caption.jpg?w=600&h=600&s=1')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -65,8 +63,7 @@ const Forthcarosal = () => {
            <button className="absolute top-3 hover:text-2xl right-3 m-2"> {/* Add absolute positioning */}
           <FaHeart size={24} color="red" /> {/* Use the heart icon */}
         </button>
-          <h1 className='font-bold'>All Inclusive Ultimate Circle Island Day Tour with Lunch 
-          and Waimea Waterfall</h1>
+          <h1 className='font-bold text-xl'>Punta Cana, Dominican Republic</h1>
         </div>
         <div className='p-2 relative'>
          <img style={{
@@ -79,7 +76,7 @@ const Forthcarosal = () => {
            <button className="absolute top-3 hover:text-2xl right-3 m-2"> {/* Add absolute positioning */}
           <FaHeart size={24} color="red" /> {/* Use the heart icon */}
         </button>
-          <h1 className='font-bold'>Tour of North Shore & Waimea Waterfall</h1>
+          <h1 className='font-bold text-xl'>Orlando, FL</h1>
         </div>
         <div className='p-2 relative'>
          <img style={{
@@ -89,8 +86,8 @@ const Forthcarosal = () => {
             width: '100%',
             height: '300px', // Adjust the height as needed
           }} />
-          <button className="absolute top-3 hover:text-2xl right-3 m-2"> {/* Add absolute positioning */}
-          <FaHeart size={24} color="red" /> {/* Use the heart icon */}
+          <button className="absolute top-3 hover:text-2xl right-3 m-2"> 
+          <FaHeart size={24} color="red" /> 
         </button>
           <h1 className='font-bold'>Oahu Circle Island - North Shore Snorkeling Tour (Dole & Temple)</h1>
         </div>
@@ -102,8 +99,8 @@ const Forthcarosal = () => {
             width: '100%',
             height: '300px', // Adjust the height as needed
           }} />
-           <button className="absolute top-3 hover:text-2xl right-3 m-2"> {/* Add absolute positioning */}
-          <FaHeart size={24} color="red" /> {/* Use the heart icon */}
+           <button className="absolute top-3 hover:text-2xl right-3 m-2"> 
+          <FaHeart size={24} color="red" /> 
         </button>
           <h1 className='font-bold'>North Shore Circle Island Adventure Including Snorkeling with the Turtles</h1>
         </div>
