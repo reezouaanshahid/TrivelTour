@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
@@ -7,6 +7,36 @@ export default function Navbar() {
   const [isDropdownOpen3, setIsDropdownOpen3] = useState(false);
   const [isDropdownOpen4, setIsDropdownOpen4] = useState(false);
 
+  const dropdownRef = useRef(null);
+  const dropdownRef2 = useRef(null);
+  const dropdownRef3 = useRef(null);
+  const dropdownRef4 = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        dropdownRef2.current &&
+        !dropdownRef2.current.contains(event.target) &&
+        dropdownRef3.current &&
+        !dropdownRef3.current.contains(event.target) &&
+        dropdownRef4.current &&
+        !dropdownRef4.current.contains(event.target)
+      ) {
+        setIsDropdownOpen(false);
+        setIsDropdownOpen2(false);
+        setIsDropdownOpen3(false);
+        setIsDropdownOpen4(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
@@ -14,11 +44,21 @@ export default function Navbar() {
   const toggleDropdown2 = () => {
     setIsDropdownOpen2(!isDropdownOpen2);
   };
+
   const toggleDropdown3 = () => {
     setIsDropdownOpen3(!isDropdownOpen3);
   };
+
   const toggleDropdown4 = () => {
     setIsDropdownOpen4(!isDropdownOpen4);
+  };
+
+  // Event handler to close dropdowns when hovering over other components
+  const handleHover = () => {
+    setIsDropdownOpen(false);
+    setIsDropdownOpen2(false);
+    setIsDropdownOpen3(false);
+    setIsDropdownOpen4(false);
   };
 
   return (
@@ -29,47 +69,48 @@ export default function Navbar() {
         </div>
         <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
           {/* Dropdown 1 */}
-          <div className="relative">
-            <button onClick={toggleDropdown} className="mr-5 hover:text-gray-900 text-xl">Discover</button>
+          <div className="relative" ref={dropdownRef} onMouseEnter={toggleDropdown} onMouseLeave={handleHover}>
+            <button className="mr-5 hover:text-gray-900 text-xl">Discover</button>
             {isDropdownOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
-                <Link to="/option1" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 1 </Link>
-                <Link to="/option2" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 2</Link>
-                <Link to="/option3" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 3</Link>
+                <Link to="" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Travelers' Choice</Link>
+                <Link to="" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Travel Stories</Link>
+                <Link to="" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Travel Forums</Link>
               </div>
             )}
           </div>
           
           {/* Dropdown 2 */}
-          <div className="relative">
-            <button onClick={toggleDropdown2} className="mr-5 hover:text-gray-900 text-xl">Trip</button>
+          <div className="relative" ref={dropdownRef2} onMouseEnter={toggleDropdown2} onMouseLeave={handleHover}>
+            <button className="mr-5 hover:text-gray-900 text-xl">Trip</button>
             {isDropdownOpen2 && (
               <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
-                <Link to="/option1" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 144</Link>
-                <Link to="/option2" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 2</Link>
-                <Link to="/option3" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 3</Link>
+                <Link to="" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Plan a trip</Link>
+                <Link to="" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Hire a trip designer</Link>
               </div>
             )}
           </div>
           
-          {/* Remaining links */}
-          <div className="relative">
-            <button onClick={toggleDropdown3} className="mr-5 hover:text-gray-900 text-xl">Review</button>
+          {/* Dropdown 3 */}
+          <div className="relative" ref={dropdownRef3} onMouseEnter={toggleDropdown3} onMouseLeave={handleHover}>
+            <button className="mr-5 hover:text-gray-900 text-xl">Review</button>
             {isDropdownOpen3 && (
               <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
-                <Link to="/option1" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 144</Link>
-                <Link to="/option2" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 2</Link>
-                <Link to="/option3" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 3</Link>
+                <Link to="" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Write a review</Link>
+                <Link to="" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Post photos</Link>
+                <Link to="" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Add a place</Link>
               </div>
             )}
           </div>
-          <div className="relative">
-            <button onClick={toggleDropdown4} className="mr-5 hover:text-gray-900 text-xl">More</button>
+          
+          {/* Dropdown 4 */}
+          <div className="relative" ref={dropdownRef4} onMouseEnter={toggleDropdown4} onMouseLeave={handleHover}>
+            <button className="mr-5 hover:text-gray-900 text-xl">More</button>
             {isDropdownOpen4 && (
               <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
-                <Link to="/option1" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 144</Link>
-                <Link to="/option2" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 2</Link>
-                <Link to="/option3" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 3</Link>
+                <Link to="" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Flights</Link>
+                <Link to="" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Cruises</Link>
+                <Link to="" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Rental Cars</Link>
               </div>
             )}
           </div>

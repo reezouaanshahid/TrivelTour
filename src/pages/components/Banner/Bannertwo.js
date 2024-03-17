@@ -20,7 +20,7 @@ export default function Bannertwo() {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       width: '100%',
-      height: '40vh', // Adjust the height as needed
+      height: 'auto', // Adjust the height as needed
     }}
     className='md:w-1/2'
   >
